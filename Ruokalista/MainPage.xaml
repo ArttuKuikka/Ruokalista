@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ruokalista.MainPage">
 
-    <StackLayout>
+    <StackLayout BackgroundColor="Black">
         <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="0">
             <StackLayout>
-                <Label Text="Ruokalista" TextColor="White" FontSize="30"/>
-                <Label x:Name="updatedlabel" Text="Päivitetty: " FontSize="20" TextColor="White"></Label>
+                <Label Text="Ruokalista" x:Name="TitleLabel" TextColor="White" FontSize="30"/>
+                <Label x:Name="updatedlabel" Text="Päivitetty: " FontSize="15" TextColor="White"></Label>
             </StackLayout>
         </Frame>
-        <Label x:Name="Testi"></Label>
+        <Label x:Name="Testi" TextColor="White" FontSize="20"></Label>
        
     </StackLayout>
 

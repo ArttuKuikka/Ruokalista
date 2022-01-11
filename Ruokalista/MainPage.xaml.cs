@@ -35,8 +35,26 @@ namespace Ruokalista
 
             var content = GetBetween(basehtml, $"<content type={quote}html{quote}>", "</content>");
 
+
+            var Title = GetBetween(content, "&lt;p&gt;&lt;b&gt;", "&lt;br/&gt;&#10;");
+
+            TitleLabel.Text = Title;
+
+            var ruoka = content.Replace("&lt;br/&gt;&#10;", "\n");
+            ruoka = ruoka.Replace("&lt;p&gt;&lt;b&gt;" + Title, string.Empty);
+            ruoka = ruoka.Replace("&lt;br/&gt;&#10;", string.Empty);
+            ruoka = ruoka.Replace("&lt;/b&gt;", string.Empty);
+            ruoka = ruoka.Replace("&lt;/p&gt;&#10;", string.Empty);
+            ruoka = ruoka.Replace("\n\n\n", string.Empty);
+            ruoka = ruoka.Replace("\n", "\n\n");
+
             updatedlabel.Text = "päivitetty: " + updated;
-            Testi.Text = updated + "\n" + content;
+            Testi.Text = ruoka;
+
+            if(TitleLabel.Text == "")
+            {
+                TitleLabel.Text = "Ruokalista Error";
+            }
         }
 
         public static string GetBetween(string strSource, string strStart, string strEnd)
