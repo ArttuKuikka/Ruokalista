@@ -10,7 +10,7 @@
                 <Label x:Name="updatedlabel" Text="Päivitetty: " FontSize="15" TextColor="White"></Label>
             </StackLayout>
         </Frame>
-        <Label x:Name="Testi" TextColor="White" FontSize="20"></Label>
+        <Label x:Name="Testi" Margin="5" TextColor="White" FontSize="20"></Label>
        
     </StackLayout>
 
