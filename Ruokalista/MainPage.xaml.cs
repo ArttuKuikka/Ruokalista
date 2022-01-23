@@ -32,7 +32,16 @@ namespace Ruokalista
             var basehtml = GetBetween(http, "<entry>", "</entry>");
 
             var updated = GetBetween(basehtml, "<updated>", "</updated>");
-            var datetimeupdate = DateTime.Parse(updated);  
+
+            DateTime datetimeupdate = DateTime.MinValue;
+            try
+            {
+                datetimeupdate = DateTime.Parse(updated);
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", "virhe päivämäärn lataamisessa", "OK");
+            }
 
             var content = GetBetween(basehtml, $"<content type={quote}html{quote}>", "</content>");
 
@@ -49,7 +58,7 @@ namespace Ruokalista
             ruoka = ruoka.Replace("\n\n\n", string.Empty);
             ruoka = ruoka.Replace("\n", "\n\n");
 
-            updatedlabel.Text = "päivitetty: " + datetimeupdate.ToString("MM/dd/yyyy HH:mm");
+            updatedlabel.Text = "päivitetty: " + datetimeupdate.ToString("dd/MM/yyyy HH:mm");
             Testi.Text = ruoka;
 
             if(TitleLabel.Text == "")
