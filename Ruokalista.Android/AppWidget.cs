@@ -44,40 +44,49 @@ namespace Ruokalista.Droid.AppWidget
 
 		private void SetTextViewText(RemoteViews widgetView)
 		{
-			var url = "https://peda.net/isokyro/ylakoulu/hyv%C3%A4-tiet%C3%A4%C3%A4/kouluruokailu:atom";
-
-			char quote = '\u0022';
-
-			WebClient client = new WebClient();
-
-			string http = client.DownloadString(url);
-
-			var basehtml = GetBetween(http, "<entry>", "</entry>");
-
 			
-
-			var content = GetBetween(basehtml, $"<content type={quote}html{quote}>", "</content>");
-
-
-			var Title = GetBetween(content, "&lt;p&gt;&lt;b&gt;", "&lt;br/&gt;&#10;");
-
-			
-
-			var ruoka = content.Replace("&lt;br/&gt;&#10;", "\n");
-			ruoka = ruoka.Replace("&lt;p&gt;&lt;b&gt;" + Title, string.Empty);
-			ruoka = ruoka.Replace("&lt;br/&gt;&#10;", string.Empty);
-			ruoka = ruoka.Replace("&lt;/b&gt;", string.Empty);
-			ruoka = ruoka.Replace("&lt;/p&gt;&#10;", string.Empty);
-			ruoka = ruoka.Replace("\n\n\n", string.Empty);
-			//ruoka = ruoka.Replace("\n", "\n\n");
-
-			
-		
+			widgetView.SetTextViewText(Resource.Id.RuokaTitle, "Ladataan...");
+			widgetView.SetTextViewText(Resource.Id.RuokaListaText, "");
 
 
-			widgetView.SetTextViewText(Resource.Id.textView1, "Widget päivitetty: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-			widgetView.SetTextViewText(Resource.Id.RuokaTitle, Title);
-			widgetView.SetTextViewText(Resource.Id.RuokaListaText, ruoka);
+
+            try
+            {
+				var url = "https://peda.net/isokyro/ylakoulu/hyv%C3%A4-tiet%C3%A4%C3%A4/kouluruokailu:atom";
+
+				char quote = '\u0022';
+
+				WebClient client = new WebClient();
+
+				string http = client.DownloadString(url);
+
+				var basehtml = GetBetween(http, "<entry>", "</entry>");
+
+
+
+				var content = GetBetween(basehtml, $"<content type={quote}html{quote}>", "</content>");
+
+
+				var Title = GetBetween(content, "&lt;p&gt;&lt;b&gt;", "&lt;br/&gt;&#10;");
+
+
+
+				var ruoka = content.Replace("&lt;br/&gt;&#10;", "\n");
+				ruoka = ruoka.Replace("&lt;p&gt;&lt;b&gt;" + Title, string.Empty);
+				ruoka = ruoka.Replace("&lt;br/&gt;&#10;", string.Empty);
+				ruoka = ruoka.Replace("&lt;/b&gt;", string.Empty);
+				ruoka = ruoka.Replace("&lt;/p&gt;&#10;", string.Empty);
+				ruoka = ruoka.Replace("\n\n\n", string.Empty);
+
+
+				widgetView.SetTextViewText(Resource.Id.textView1, "Widget päivitetty: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+				widgetView.SetTextViewText(Resource.Id.RuokaTitle, Title);
+				widgetView.SetTextViewText(Resource.Id.RuokaListaText, ruoka);
+			}
+			catch(Exception ex)
+            {
+				widgetView.SetTextViewText(Resource.Id.RuokaListaText, "Virhe: " + ex.Message);
+			}
 			
 			
 			

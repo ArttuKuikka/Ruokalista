@@ -54,8 +54,8 @@
     <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-    <AndroidKeyStore>false</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\Arttu\Desktop\key.keystore</AndroidSigningKeyStore>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>Z:\Arttu\Ruokalista.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>Miisukissa0</AndroidSigningStorePass>
     <AndroidSigningKeyPass>Miisukissa0</AndroidSigningKeyPass>
     <AndroidSigningKeyAlias>Key0</AndroidSigningKeyAlias>
@@ -70,7 +70,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>

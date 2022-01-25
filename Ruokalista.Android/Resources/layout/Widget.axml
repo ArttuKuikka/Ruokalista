@@ -8,6 +8,8 @@
     android:layout_height="match_parent"
     android:exported="true">
 
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -28,9 +30,15 @@
             android:layout_marginLeft="5.0dp" 
             
             />
+
+       
+
+
+       
+
         <TextView
             android:id="@+id/RuokaTitle"
-            android:text="Ruokalista"
+            android:text="Title"
             android:textColor="#ffffff"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
@@ -39,6 +47,7 @@
             android:textAlignment="center"
             android:layout_marginRight="0.0dp"
             android:layout_marginBottom="0.0dp" />
+
         <TextView
             android:id="@+id/RuokaListaText"
             android:text="Error\nError"
@@ -51,6 +60,8 @@
             android:textAlignment="center"
             android:layout_marginRight="0.0dp"
             android:layout_marginBottom="0.0dp" />
-        
+
     </LinearLayout>
+
+
 </LinearLayout>

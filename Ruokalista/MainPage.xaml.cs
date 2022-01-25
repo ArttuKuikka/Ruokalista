@@ -15,7 +15,14 @@ namespace Ruokalista
         {
             InitializeComponent();
 
-            GetRuoka();
+            try
+            {
+                GetRuoka();
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
         }
 
 
