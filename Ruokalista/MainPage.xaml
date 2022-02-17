@@ -10,7 +10,10 @@
                 <Label x:Name="updatedlabel" Text="Päivitetty: " FontSize="15" TextColor="White"></Label>
             </StackLayout>
         </Frame>
-        <Label x:Name="Testi" Margin="5" TextColor="White" FontSize="20"></Label>
+        <ScrollView>
+            <Label x:Name="RuokaLabel" Margin="5" TextColor="White" FontSize="20"></Label>
+        </ScrollView>
+        
        
     </StackLayout>
 

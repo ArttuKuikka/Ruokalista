@@ -77,6 +77,7 @@ namespace Ruokalista.Droid.AppWidget
 				ruoka = ruoka.Replace("&lt;/b&gt;", string.Empty);
 				ruoka = ruoka.Replace("&lt;/p&gt;&#10;", string.Empty);
 				ruoka = ruoka.Replace("\n\n\n", string.Empty);
+				ruoka = ruoka.Replace("&lt;b&gt;", " ");
 
 
 				widgetView.SetTextViewText(Resource.Id.textView1, "Widget päivitetty: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));

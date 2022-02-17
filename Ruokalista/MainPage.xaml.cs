@@ -45,7 +45,7 @@ namespace Ruokalista
             {
                 datetimeupdate = DateTime.Parse(updated);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DisplayAlert("Error", "virhe päivämäärn lataamisessa", "OK");
             }
@@ -64,9 +64,10 @@ namespace Ruokalista
             ruoka = ruoka.Replace("&lt;/p&gt;&#10;", string.Empty);
             ruoka = ruoka.Replace("\n\n\n", string.Empty);
             ruoka = ruoka.Replace("\n", "\n\n");
+            ruoka = ruoka.Replace("&lt;b&gt;", " ");
 
             updatedlabel.Text = "päivitetty: " + datetimeupdate.ToString("dd/MM/yyyy HH:mm");
-            Testi.Text = ruoka;
+            RuokaLabel.Text = ruoka;
 
             if(TitleLabel.Text == "")
             {
